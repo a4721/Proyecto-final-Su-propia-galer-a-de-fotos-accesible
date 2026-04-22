@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi galería accesible</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+        }
+
+        #image {
+            width: 400px;
+            height: 300px;
+            border: 2px solid black;
+            margin: auto;
+            margin-bottom: 20px;
+            background-size: cover;
+            background-position: center;
+            line-height: 300px;
+        }
+
+        img {
+            width: 150px;
+            margin: 10px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script>
+        function upDate(previewPic) {
+            console.log("Activado");
+            document.getElementById("image").style.backgroundImage = "url('" + previewPic.src + "')";
+            document.getElementById("image").innerHTML = previewPic.alt;
+        }
+
+        function undo() {
+            console.log("Restablecido");
+            document.getElementById("image").style.backgroundImage = "";
+            document.getElementById("image").innerHTML = "Pasa el mouse o usa TAB";
+        }
+
+        function addTabFocus() {
+            console.log("Página cargada");
+
+            let images = document.querySelectorAll("img");
+
+            for (let i = 0; i < images.length; i++) {
+                images[i].setAttribute("tabindex", "0");
+            }
+        }
+    </script>
+</head>
+
+<body onload="addTabFocus()">
+
+    <h1>Mi Galería de Fotos</h1>
+
+    <div id="image">
+        Pasa el mouse o usa TAB
+    </div>
+
+    <!-- 📸 AQUÍ VAN TUS FOTOS -->
+    
+    <img src="imagen 1.jpeg" alt="Bucaramanga"
+        onmouseover="upDate(this)" onmouseleave="undo()"
+        onfocus="upDate(this)" onblur="undo()">
+
+    <img src="imagen 2.jpeg" alt="La luna"
+        onmouseover="upDate(this)" onmouseleave="undo()"
+        onfocus="upDate(this)" onblur="undo()">
+
+    <img src="imagen 3.jpeg" alt="Iglesia de suita"
+        onmouseover="upDate(this)" onmouseleave="undo()"
+        onfocus="upDate(this)" onblur="undo()">
+
+    <img src="imagen 4.jpeg" alt="Montañas de guadalupe"
+        onmouseover="upDate(this)" onmouseleave="undo()"
+        onfocus="upDate(this)" onblur="undo()">
+
+    <img src="imagen 5.jpeg" alt="Atardecer"
+        onmouseover="upDate(this)" onmouseleave="undo()"
+        onfocus="upDate(this)" onblur="undo()">
+
+    <img src="imagen 6.jpeg" alt="Una rosa"
+        onmouseover="upDate(this)" onmouseleave="undo()"
+        onfocus="upDate(this)" onblur="undo()">
+
+</body>
+</html>
